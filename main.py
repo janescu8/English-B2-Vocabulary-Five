@@ -108,7 +108,7 @@ if st.session_state.current_index < len(st.session_state.words):
                 st.stop()
 
             with st.spinner("評分中 / Scoring..."):
-                prompt = f"""請幫我評分以下英文句子，並提供回饋：\n目標單字：{test_word}\n使用者造的句子：{user_answer}\n\n請提供以下資訊：\n1. 分數（1～10 分）\n2. 評論：是否文法正確？是否有語意問題？是否正確使用該單字？\n3. 建議修正版句子（如果需要）\n"""
+                prompt = f"""Please help evaluate the following English sentence and provide feedback:\nTarget word: {test_word}\nUser's sentence: {user_answer}\n\nPlease include the following:\n1. Score (1 to 10)\n2. Comments: Is the grammar correct? Are there any semantic issues? Is the target word used correctly?\n3. Suggested revised sentence (if necessary)\n"""
                 try:
                     response = client.chat.completions.create(
                         model="gpt-3.5-turbo",
